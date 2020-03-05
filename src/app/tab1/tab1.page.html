@@ -1,17 +1,43 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 1
+      Serving Today
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+  <!-- <ion-card *ngFor="let item of items"> -->
+  <ion-card>
+
+    <ion-row>
+      <ion-col class="text-layout">
+        <p class="item-name">Fake Burger</p>
+        <p class="item-disc">2x Beef patty, fries and mayo </p>
+        <p class="price">R69</p>
+      </ion-col>
+      <ion-col>
+        <img src="https://myfoodbook.com.au/sites/default/files/styles/single_recipe/public/recipe_photo/butter-chicken.jpg">
+      </ion-col>
+    </ion-row>
+
+  </ion-card>
+  <ion-card>
+
+    <ion-row>
+      <ion-col class="text-layout">
+        <p class="item-name">Fake Burger</p>
+        <p class="item-disc">2x Beef patty, fries and mayo </p>
+        <p class="price">R69</p>
+      </ion-col>
+      <ion-col>
+        <img src="https://i1.wp.com/lehae.huntingme.co.za/wp-content/uploads/2017/11/pap-and-chicken-stew.jpg?fit=600%2C600">
+      </ion-col>
+    </ion-row>
+
+  </ion-card>
+  
+
+  
 </ion-content>

@@ -1,3 +1,21 @@
 ion-content ion-toolbar {
   --background: translucent;
 }
+
+
+
+.item-name {
+  font-size:120%;
+  padding-left: 10%;
+}
+
+.item-disc {
+  font:80%;
+  padding-left: 10%;
+}
+
+.price {
+  font-size: 100%;
+  padding-left: 10%;
+  margin-bottom: 0px;
+}
