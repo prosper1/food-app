@@ -5,6 +5,30 @@ const routes: Routes = [
   {
     path: '',
     loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
+  },
+  {
+    path: 'login',
+    loadChildren: () => import('./auth/login/login.module').then( m => m.LoginPageModule)
+  },
+  {
+    path: 'register',
+    loadChildren: () => import('./auth/register/register.module').then( m => m.RegisterPageModule)
+  },
+  {
+    path: 'food-details',
+    loadChildren: () => import('./food-details/food-details.module').then( m => m.FoodDetailsPageModule)
+  },
+  {
+    path: 'payment-methods',
+    loadChildren: () => import('./payment-methods/payment-methods.module').then( m => m.PaymentMethodsPageModule)
+  },
+  {
+    path: 'suggestions',
+    loadChildren: () => import('./suggestions/suggestions.module').then( m => m.SuggestionsPageModule)
+  },
+  {
+    path: 'ratings',
+    loadChildren: () => import('./ratings/ratings.module').then( m => m.RatingsPageModule)
   }
 ];
 @NgModule({
