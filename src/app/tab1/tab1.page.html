@@ -11,14 +11,14 @@
   <!-- <ion-card *ngFor="let item of items"> -->
   <ion-card>
 
-    <ion-row>
+    <ion-row (click)="goto()">
       <ion-col class="text-layout">
         <p class="item-name">Fake Burger</p>
         <p class="item-disc">2x Beef patty, fries and mayo </p>
         <p class="price">R69</p>
       </ion-col>
       <ion-col>
-        <img src="https://myfoodbook.com.au/sites/default/files/styles/single_recipe/public/recipe_photo/butter-chicken.jpg">
+        <img src="https://myfoodbook.com.au/sites/default/files/styles/single_recipe/public/recipe_photo/butter-chicken.jpg" class="img-clear">
       </ion-col>
     </ion-row>
 
@@ -32,7 +32,7 @@
         <p class="price">R69</p>
       </ion-col>
       <ion-col>
-        <img src="https://i1.wp.com/lehae.huntingme.co.za/wp-content/uploads/2017/11/pap-and-chicken-stew.jpg?fit=600%2C600">
+        <img src="https://i1.wp.com/lehae.huntingme.co.za/wp-content/uploads/2017/11/pap-and-chicken-stew.jpg?fit=600%2C600" class="img-clear">
       </ion-col>
     </ion-row>
 

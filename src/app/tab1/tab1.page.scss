@@ -2,7 +2,9 @@ ion-content ion-toolbar {
   --background: translucent;
 }
 
-
+.img-clear{
+  border-radius: 3% 3% 3% 3%;
+}
 
 .item-name {
   font-size:120%;
@@ -15,7 +17,7 @@ ion-content ion-toolbar {
 }
 
 .price {
-  font-size: 100%;
+  font-size: 130%;
   padding-left: 10%;
   margin-bottom: 0px;
 }
