@@ -19,7 +19,7 @@ export class TokenInterceptor implements HttpInterceptor {
 
 intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
-const token = 'Token 273d477ee7e48c8ce317f8f5020b784d9420ed5e';
+const token = 'Token '+ localStorage.getItem('token');
 
 if (token) {
   request = request.clone({

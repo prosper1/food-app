@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ToastController } from '@ionic/angular';
+import { OrdersService } from '../services/orders.service';
+import { Router } from '@angular/router'
 
 @Component({
   selector: 'app-food-details',
@@ -8,14 +10,46 @@ import { ToastController } from '@ionic/angular';
 })
 export class FoodDetailsPage implements OnInit {
   hasOrder = false
-  constructor(private toastController: ToastController) { }
+  product={};
+
+  constructor(
+    private toastController: ToastController,
+    private restapi: OrdersService,
+    private route: Router,
+    ) { 
+      this.getProductDetail()
+    }
 
   ngOnInit() {
   }
 
-  
-  placeOrder() {
-    this.handleSuccessToast('yes','Monday')
+
+  getProductDetail() {
+    this.restapi.getProductDetails(1)
+    .then(data => {
+      this.product = data;
+      console.log(this.product)
+    });
+  }
+
+
+  placeOrder(foodId:number) {
+
+      let user = localStorage.getItem('user');
+      const userId = parseInt(user)
+      console.log(userId)
+
+      console.log(foodId)
+      const products = {"food": foodId, "user": userId};
+      
+      this.restapi.addOrder(products).then(res => {
+        console.log(res);
+        this.handleSuccessToast('yes','Monday')
+      }, err => {
+        this.handleSuccessToast('no','Monday')
+      });
+    
+    
   }
 
 
@@ -39,15 +73,10 @@ export class FoodDetailsPage implements OnInit {
       position: 'middle',
       showCloseButton: false
     }).then(toast => {
-      this.itemCount = 1
       toast.present();
       toast.onDidDismiss().then(yes =>{
-        const navigationExtras: NavigationExtras = {
-          state: {
-            cartitems: this.itemCount
-          }
-        };
-        this.router.navigate(['openbusiness'], navigationExtras);
+        
+        this.route.navigateByUrl('/');
       });
     });
   }

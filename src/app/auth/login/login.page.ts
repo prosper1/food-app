@@ -27,9 +27,8 @@ export class LoginPage implements OnInit {
     console.log(logins)
     this.restapi.login(logins)
     .subscribe(res => {
-      console.log(res)
-      localStorage.setItem('token', res.token);
-      localStorage.setItem('token', res.token);
+      console.log(res.key)
+      localStorage.setItem('token', res.key);
       this.router.navigate(['tabs']);
     }, err => {
       console.log(err);

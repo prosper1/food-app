@@ -14,7 +14,18 @@ export class Tab1Page {
 
   constructor(private route: Router, private restapi: OrdersService){
     this.getFilteredProducts()
+    this.getUser()
    }
+
+  
+   
+
+  getUser(){
+    this.restapi.getUser().then(data => {
+      localStorage.setItem('user', data[0].id);
+     
+    })
+  }
 
   getFilteredProducts() {
     this.restapi.getProduct('monday')
