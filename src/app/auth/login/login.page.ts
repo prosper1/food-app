@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../../services/auth.service';
+import { Router } from '@angular/router';
+import { ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-login',
@@ -7,9 +10,32 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginPage implements OnInit {
 
-  constructor() { }
+  userLoginData = {"email": "","password":""}
+
+  constructor(
+    private restapi: AuthService,
+    private router: Router,
+    public toastController: ToastController,
+
+  ) { }
 
   ngOnInit() {
   }
+
+  doLogin() {
+    const logins = this.userLoginData;
+    console.log(logins)
+    this.restapi.login(logins)
+    .subscribe(res => {
+      console.log(res)
+      localStorage.setItem('token', res.token);
+      localStorage.setItem('token', res.token);
+      this.router.navigate(['tabs']);
+    }, err => {
+      console.log(err);
+      
+    });
+  }
+
 
 }

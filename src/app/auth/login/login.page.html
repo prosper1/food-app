@@ -9,16 +9,18 @@
     <p color="light">login to continue</p>
     
   </div>
+  <form (submit)="doLogin()">
   <div class="login-body">
-
+    
     <ion-item>
-      <ion-input>email</ion-input>
+      <ion-input type="email" [(ngModel)]="userLoginData.email" name="email" placeholder="example@gmail.com">email :</ion-input>
     </ion-item>
     <ion-item>
-      <ion-input>password</ion-input>
+      <ion-input type="password" [(ngModel)]="userLoginData.password" name="password" >Password :</ion-input>
     </ion-item>
-    <ion-button expand="block" size="large">LOGIN</ion-button>
-
+    <ion-button  expand="block" size="large" type="submit">LOGIN</ion-button>
+  
   </div>
+  </form>
 
 </ion-content>

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { OrdersService } from '../services/orders.service';
 
 @Component({
   selector: 'app-tab1',
@@ -8,7 +9,20 @@ import { Router } from '@angular/router';
 })
 export class Tab1Page {
 
-  constructor(private route: Router) {}
+  product: any
+  productId: any
+
+  constructor(private route: Router, private restapi: OrdersService){
+    this.getFilteredProducts()
+   }
+
+  getFilteredProducts() {
+    this.restapi.getProduct('monday')
+    .then(data => {
+      this.product = data;
+      console.log(this.product)
+    });
+  }
 
   goto(){
     this.route.navigateByUrl('/food-details')

@@ -29,6 +29,10 @@ const routes: Routes = [
   {
     path: 'ratings',
     loadChildren: () => import('./ratings/ratings.module').then( m => m.RatingsPageModule)
+  },
+  {
+    path: 'add-item',
+    loadChildren: () => import('./add-item/add-item.module').then( m => m.AddItemPageModule)
   }
 ];
 @NgModule({
