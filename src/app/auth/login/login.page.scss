@@ -1,9 +1,10 @@
 .login-header {
     border-radius: 0% 0% 50% 50%;
     min-height: 40%;
-    background: grey;
-    padding: 15% 10% 10% 10%;
+    background: #153A64;
+    padding: 10% 10% 10% 10%;
     text-align: center;
+    color:#E4C40F;
 }
 
 .img-center {
@@ -12,5 +13,9 @@
 }
 
 .login-body {
-    padding: 10% 10% 10% 10%
+    padding: 5% 10% 10% 10%
+}
+
+.register{
+    text-align: center;
 }

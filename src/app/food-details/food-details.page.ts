@@ -41,15 +41,12 @@ export class FoodDetailsPage implements OnInit {
 
       console.log(foodId)
       const products = {"food": foodId, "user": userId};
-      
       this.restapi.addOrder(products).then(res => {
         console.log(res);
         this.handleSuccessToast('yes','Monday')
       }, err => {
         this.handleSuccessToast('no','Monday')
       });
-    
-    
   }
 
 
@@ -71,11 +68,9 @@ export class FoodDetailsPage implements OnInit {
       duration: 2000,
       message: msg,
       position: 'middle',
-      showCloseButton: false
     }).then(toast => {
       toast.present();
-      toast.onDidDismiss().then(yes =>{
-        
+      toast.onDidDismiss().then(yes => {
         this.route.navigateByUrl('/');
       });
     });
