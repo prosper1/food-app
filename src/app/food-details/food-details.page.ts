@@ -31,16 +31,6 @@ export class FoodDetailsPage implements OnInit {
   ngOnInit() {
   }
 
-
-  getProductDetail(productId: number) {
-    this.restapi.getProductDetails(productId)
-    .then(data => {
-      this.product = data;
-      console.log(this.product)
-    });
-  }
-
-
   placeOrder(foodId:number) {
 
       let user = localStorage.getItem('user');
