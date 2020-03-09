@@ -35,7 +35,7 @@ export class FoodDetailsPage implements OnInit {
 
       let user = localStorage.getItem('user');
       const userId = parseInt(user)
-      console.log(userId)
+      console.log(userId);
 
       console.log(foodId)
       const products = {"food": foodId, "user": userId};
