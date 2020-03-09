@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, NavigationExtras, ActivatedRoute } from '@angular/router'
 import { OrdersService } from '../services/orders.service';
 
 @Component({
@@ -9,33 +9,39 @@ import { OrdersService } from '../services/orders.service';
 })
 export class Tab1Page {
 
-  product: any
-  productId: any
+  product: any;
+  productId: any;
 
-  constructor(private route: Router, private restapi: OrdersService){
-    this.getFilteredProducts()
-    this.getUser()
+  constructor(
+    private router: Router,
+    private restapi: OrdersService,
+    private route: ActivatedRoute) {
+    this.getFilteredProducts();
+    this.getUser();
    }
 
-  
-   
-
-  getUser(){
+  getUser() {
     this.restapi.getUser().then(data => {
       localStorage.setItem('user', data[0].id);
-     
-    })
+    });
   }
 
   getFilteredProducts() {
     this.restapi.getProduct('monday')
     .then(data => {
       this.product = data;
-      console.log(this.product)
+      console.log(this.product);
     });
   }
 
-  goto(){
-    this.route.navigateByUrl('/food-details')
+  goto(itemId: any) {
+
+    const selectProduct = this.product.filter(item => item.id === itemId);
+    const navigationExtras: NavigationExtras = {
+      state: {
+        product: selectProduct
+      }
+    };
+    this.router.navigate(['food-details'], navigationExtras);
   }
 }

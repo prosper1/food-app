@@ -11,14 +11,14 @@
   <ion-card *ngFor="let item of product">
   
 
-    <ion-row (click)="goto()">
-      <ion-col class="text-layout">
+    <ion-row>
+      <ion-col class="text-layout" (click)="goto(item.id)">
         <p class="item-name">{{item.name}}</p>
         <p class="item-disc">{{item.discriptions}} </p>
         <p class="price">R{{item.price}}</p>
       </ion-col>
-      <ion-col>
-        <img src="https://myfoodbook.com.au/sites/default/files/styles/single_recipe/public/recipe_photo/butter-chicken.jpg" class="img-clear">
+      <ion-col (click)="goto(item.id)">
+        <img [src]="item.pic" class="img-clear">
       </ion-col>
     </ion-row>
 

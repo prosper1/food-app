@@ -1,9 +1,9 @@
 <ion-content>
   
 
-  <ion-img src="https://myfoodbook.com.au/sites/default/files/styles/single_recipe/public/recipe_photo/butter-chicken.jpg" class="detail-img"></ion-img>
-  <ion-text color='light' class="text-align"><h3>{{product.name}}</h3></ion-text>
-  <ion-text color='light' class="text-align"><h5>{{product.discriptions}}</h5></ion-text>
+  <ion-img [src]="selectProduct.pic" class="detail-img"></ion-img>
+  <ion-text color='light' class="text-align"><h3>{{selectProduct.name}}</h3></ion-text>
+  <ion-text color='light' class="text-align"><h5>{{selectProduct.discriptions}}</h5></ion-text>
 
   <ion-list>
     <ion-list-header>
@@ -32,7 +32,7 @@
     
   </ion-list>
 
-  <ion-item>Total Price: {{product.price}}</ion-item>
+  <ion-item>Total Price: {{selectProduct.price}}</ion-item>
 
   <ion-footer *ngIf="hasOrder == false">
     <ion-toolbar>

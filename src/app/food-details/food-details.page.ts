@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ToastController } from '@ionic/angular';
 import { OrdersService } from '../services/orders.service';
-import { Router } from '@angular/router'
+import { ActivatedRoute, Router, NavigationExtras } from '@angular/router';
 
 @Component({
   selector: 'app-food-details',
@@ -9,23 +9,31 @@ import { Router } from '@angular/router'
   styleUrls: ['./food-details.page.scss'],
 })
 export class FoodDetailsPage implements OnInit {
-  hasOrder = false
-  product={};
+  hasOrder = false;
+  product = {};
+  selectProduct = 0;
 
   constructor(
     private toastController: ToastController,
     private restapi: OrdersService,
-    private route: Router,
-    ) { 
-      this.getProductDetail()
+    private router: Router,
+    private route: ActivatedRoute,
+    ) {
+      this.route.queryParams.subscribe(params => {
+        if (this.router.getCurrentNavigation().extras.state) {
+          const result = this.router.getCurrentNavigation().extras.state.product;
+          this.selectProduct = result[0];
+          console.log(this.selectProduct);
+        }
+      });
     }
 
   ngOnInit() {
   }
 
 
-  getProductDetail() {
-    this.restapi.getProductDetails(1)
+  getProductDetail(productId: number) {
+    this.restapi.getProductDetails(productId)
     .then(data => {
       this.product = data;
       console.log(this.product)
@@ -71,7 +79,7 @@ export class FoodDetailsPage implements OnInit {
     }).then(toast => {
       toast.present();
       toast.onDidDismiss().then(yes => {
-        this.route.navigateByUrl('/');
+        this.router.navigateByUrl('/');
       });
     });
   }
