@@ -1,8 +1,13 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Serving Today
+      Serving {{selectDate}}
     </ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="openPicker()">
+        <ion-icon slot="icon-only" name="calendar"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
